@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Food UK — Right Now, Today, No Bullshit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Barlow:wght@400;600;700;900&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f5f0;
+    --yellow: #FFE600;
+    --red: #FF2D2D;
+    --green: #00C851;
+    --grey: #1a1a1a;
+    --mid: #2a2a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 0.25rem;
+    opacity: 0.6;
+  }
+
+  /* URGENT BANNER */
+  .urgent {
+    background: var(--red);
+    color: var(--white);
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* SECTION */
+  section {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid #222;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: #bbb;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  strong { color: var(--white); }
+
+  /* CARDS */
+  .card {
+    background: var(--grey);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--yellow);
+  }
+
+  .card.red { border-left-color: var(--red); }
+  .card.green { border-left-color: var(--green); }
+
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin-bottom: 0.4rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card .script {
+    background: var(--mid);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--yellow);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.1s, opacity 0.1s;
+  }
+  .btn:active { transform: scale(0.97); }
+
+  .btn-yellow { background: var(--yellow); color: var(--black); }
+  .btn-red { background: var(--red); color: var(--white); }
+  .btn-green { background: var(--green); color: var(--black); }
+  .btn-grey { background: var(--mid); color: var(--white); border: 1px solid #444; }
+
+  /* BIG NUMBER */
+  .big-number {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 4rem;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  /* STEPS */
+  .step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 2rem;
+    color: var(--yellow);
+    line-height: 1;
+    min-width: 2rem;
+  }
+
+  .step-content h3 {
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .step-content p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* NOT UK */
+  .not-uk {
+    background: var(--mid);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    border: 1px solid #333;
+  }
+
+  .not-uk h3 {
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--yellow);
+  }
+
+  .not-uk p { font-size: 0.9rem; margin: 0; }
+
+  /* FOOTER LINKS */
+  .footer-links {
+    background: var(--grey);
+    padding: 2rem 1.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .footer-links h2 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .link-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .link-card {
+    background: var(--mid);
+    border-radius: 10px;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--white);
+    border: 1px solid #333;
+    transition: border-color 0.15s;
+  }
+
+  .link-card:hover { border-color: var(--yellow); }
+
+  .link-card .emoji { font-size: 1.4rem; display: block; margin-bottom: 0.3rem; }
+  .link-card strong { font-size: 0.85rem; font-weight: 900; display: block; }
+  .link-card span { font-size: 0.75rem; color: #888; }
+
+  /* DIVIDER */
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--yellow), var(--red));
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 420px) {
+    .link-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>NEED FOOD?</h1>
+  <p>Free. Right now. No forms. No bullshit.</p>
+  <p class="subtitle">UK only — not in the UK? scroll to the bottom.</p>
+</div>
+
+<div class="urgent">🥫 You do not have to go hungry tonight</div>
+
+<!-- SECTION 1: RIGHT NOW -->
+<section>
+  <div class="section-label">⚡ Fastest option</div>
+  <h2>FREE FOOD IN YOUR AREA — RIGHT NOW</h2>
+  <p>Download OLIO. Free food from neighbours, local businesses, supermarkets. Within walking distance. Right now. No cash. No forms. Just open it.</p>
+
+  <div class="card green">
+    <h3>OLIO — Free Food App 🥦</h3>
+    <p>People post leftover food, bread, veg, meals. You grab it. Completely free. No sign-up faff.</p>
+    <a href="https://olioapp.com" class="btn btn-green">GET FREE FOOD ON OLIO →</a>
+  </div>
+
+  <div class="card green">
+    <h3>Too Good To Go — £2.50 Magic Bag 🛍️</h3>
+    <p>Greggs, Tesco, Costa, Pret. £10 of food for £2.50. Leftover from the day. Download and find one near you right now.</p>
+    <a href="https://www.toogoodtogo.com" class="btn btn-yellow">GET £10 FOOD FOR £2.50 →</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 2: FOOD BANK -->
+<section>
+  <div class="section-label">🏛️ Free food, no catch</div>
+  <h2>FOOD BANK — FREE. NO REPAYMENT. EVER.</h2>
+  <p>The Trussell Trust runs food banks across the UK. You do not need to be homeless. You do not need to prove anything complicated. You just need to be struggling.</p>
+
+  <div class="card">
+    <h3>Trussell Trust Food Bank 📦</h3>
+    <p>Find your nearest one. They give you a box of food. Free. No debt. No repayment. That's it.</p>
+    <a href="https://www.trussell.org.uk/find-a-foodbank" class="btn btn-yellow">FIND YOUR NEAREST FOOD BANK →</a>
+  </div>
+
+  <div class="card">
+    <h3>FareShare — Free Food Redistribution 🍱</h3>
+    <p>Surplus food from supermarkets sent to community groups near you. Find a group or meal near you.</p>
+    <a href="https://fareshare.org.uk/get-help/" class="btn btn-grey">FIND FARESHARE NEAR YOU →</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 3: COUNCIL -->
+<section>
+  <div class="section-label">💷 Free money for food</div>
+  <h2>YA COUNCIL OWES YOU MONEY FOR THIS</h2>
+  <p>The Household Support Fund is a government grant. Your council has it. It pays for food, energy, essentials. <strong>You do not pay it back.</strong></p>
+
+  <div class="card">
+    <h3>What to say when you call 📞</h3>
+    <div class="script">"Hi, I'm struggling to afford food right now. Can I apply for the Household Support Fund or any emergency food assistance please?"</div>
+    <p>That's it. They'll tell you what's available. Most councils can help same day.</p>
+    <a href="https://www.gov.uk/find-local-council" class="btn btn-yellow">FIND YOUR COUNCIL →</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: SCHOOLS / KIDS -->
+<section>
+  <div class="section-label">👶 Got kids?</div>
+  <h2>FREE SCHOOL MEALS — YOUR KID QUALIFIES</h2>
+  <p>If you're on Universal Credit, your child almost certainly qualifies for free school meals. Most parents don't claim it. That's free food every school day.</p>
+
+  <div class="card green">
+    <h3>Free School Meals ✅</h3>
+    <p>Apply through your council website. Takes 5 minutes. Starts almost immediately. If you're on UC — do this today.</p>
+    <a href="https://www.gov.uk/apply-free-school-meals" class="btn btn-green">CHECK IF YOUR KID QUALIFIES →</a>
+  </div>
+
+  <div class="card">
+    <h3>Holiday Hunger — Free Meals in School Holidays 🏖️</h3>
+    <p>Many councils run free meal programmes in summer and Christmas holidays. Search "[your town] holiday hunger" or ask your school.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 5: LONGER TERM -->
+<section>
+  <div class="section-label">📈 Make it stretch</div>
+  <h2>MAKE WHATEVER YOU HAVE GO FURTHER</h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h3>Aldi first, always</h3>
+      <p>Same food. Half the price. Sunday evenings — yellow sticker aisle. End-of-day markdowns. Stack your freezer for nothing.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h3>Batch cook once</h3>
+      <p>Rice + lentils + frozen veg. One pot. £2. Feeds you for 3 days. Boring? Yes. Hungry? No.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h3>Check what you're owed</h3>
+      <p>£19 billion in benefits goes unclaimed every year in the UK. Most people on low incomes are owed more than they think.</p>
+      <a href="https://www.entitledto.co.uk" class="btn btn-grey" style="margin-top:0.5rem">CHECK WHAT YOU'RE OWED →</a>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h3>Community fridge near you</h3>
+      <p>Hundreds of community fridges across the UK. Free food, no questions. Find one at Hubbub.</p>
+      <a href="https://www.hubbub.org.uk/the-community-fridge" class="btn btn-grey" style="margin-top:0.5rem">FIND A COMMUNITY FRIDGE →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NOT IN UK -->
+<section>
+  <div class="section-label">🌍 Not in the UK?</div>
+  <h2>SAME PROBLEM. DIFFERENT ADDRESS.</h2>
+  <p>Every country has versions of this. Here's where to start:</p>
+
+  <div class="not-uk">
+    <h3>🇺🇸 USA</h3>
+    <p>Search 211.org — type your zip code. Shows every local food bank, pantry and emergency resource near you right now.</p>
+  </div>
+
+  <div class="not-uk">
+    <h3>🇦🇺 Australia</h3>
+    <p>Foodbank Australia — foodbank.org.au. FoodLadder. Salvation Army. All free.</p>
+  </div>
+
+  <div class="not-uk">
+    <h3>🇮🇳 India</h3>
+    <p>Feeding India (Zomato Foundation). Robin Hood Army. PM Garib Kalyan Ann Yojana — free grain scheme. Ask your local municipality.</p>
+  </div>
+
+  <div class="not-uk">
+    <h3>🌐 Everywhere else</h3>
+    <p>Search: <strong>"free food help [your city]"</strong> or <strong>"food bank [your country]"</strong> — every country has something. You just have to find it.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOTER LINKS -->
+<div class="footer-links">
+  <h2>👀 While you're here</h2>
+  <div class="link-grid">
+    <a href="https://smallville1979.github.io/emergency/" class="link-card">
+      <span class="emoji">🚨</span>
+      <strong>EMERGENCY</strong>
+      <span>More than food. Right now.</span>
+    </a>
+    <a href="https://smallville1979.github.io/skintbutsorted/" class="link-card">
+      <span class="emoji">💸</span>
+      <strong>SKINT BUT SORTED</strong>
+      <span>Gov owes ya £1,400. Claim it.</span>
+    </a>
+    <a href="https://smallville1979.github.io/no-loans/" class="link-card">
+      <span class="emoji">🚫</span>
+      <strong>NO LOANS</strong>
+      <span>Every alternative to borrowing.</span>
+    </a>
+    <a href="https://smallville1979.github.io/disability-guide/" class="link-card">
+      <span class="emoji">♿</span>
+      <strong>DISABILITY GUIDE</strong>
+      <span>You're owed more than they said.</span>
+    </a>
+    <a href="https://py.pl/1erctY" class="link-card">
+      <span class="emoji">💳</span>
+      <strong>PAYPAL £10 FREE</strong>
+      <span>You both get £10. Sign up + spend £5.</span>
+    </a>
+    <a href="https://smallville1979.github.io/free-banking-dollars/" class="link-card">
+      <span class="emoji">🏦</span>
+      <strong>FREE BANKING CASH</strong>
+      <span>Lloyds £200. Revolut £70. Real.</span>
+    </a>
+  </div>
+
+  <p style="margin-top:1.5rem; font-size:0.85rem; color:#555; text-align:center;">
+    Not in the UK? This site is UK-focused but the global links above work anywhere.<br>
+    Questions? <a href="mailto:tomthevampireslayer@gmail.com" style="color:#666;">tomthevampireslayer@gmail.com</a>
+  </p>
+</div>
+
+</body>
+</html>
